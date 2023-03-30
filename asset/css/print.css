@@ -1,0 +1,5 @@
+@media print{
+header, .top-bar, .menu, #skipnav, #search-form, footer, #user-bar {
+	display: none !important;
+}
+}

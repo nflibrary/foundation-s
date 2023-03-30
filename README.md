@@ -1,17 +1,14 @@
-# Foundation S
+# Niagara Falls Omeka Theme
 
-This is an Omeka S theme based on ZURB Foundation Sites. It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
+This is an Omeka S theme based on Foundation S. We edited the default css as well as changing some of the phtml.
 
 ## Installation
 
-For basic out-of-the-box use of the theme, follow the [Omeka S User Manual instructions for installing themes](https://omeka.org/s/docs/user-manual/sites/site_theme/#installing-themes). 
-
-For more advanced use, such as customizing the theme with Sass, you'll need to install the tools with [NodeJS](https://nodejs.org/en/) (0.12 or greater). Navigate to your theme directory and run `npm install`.
-
+Currently changes are being tracked as part of our fork of Omeka S, I (Alison Pierson) intend to put this theme into a seperate repo for changes to be more easily shared between this theme and the foundation theme it's based on.
 ## Theme Configuration
 
 * **Stylesheet**: The theme provides 4 style options.
-  * **Default** uses ZURB Foundation's default styles for prototyping, which are all viewable in their documentation under the [Kitchen Sink](https://get.foundation/sites/docs/kitchen-sink.html).
+  * **Default** useed ZURB Foundation's default styles for prototyping, which are all viewable in their documentation under the [Kitchen Sink](https://get.foundation/sites/docs/kitchen-sink.html) as a starting point. We have since made changes.
   * **Revolution** aims to capture the feel of old documents and juxtaposes it with a bright red accent. It includes a textured paper background image.
   * **Sea Foam** offers a clean, friendly look with a teal palette.
   * **Inkwell** features a high contrast serif family for its typography, as well as sunny yellow accents.

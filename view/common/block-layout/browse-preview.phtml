@@ -1,7 +1,6 @@
 <?php
 $this->headScript()->appendFile($this->assetUrl('js/browse.js'));
 $translate = $this->plugin('translate');
-$escape = $this->plugin('escapeHtml');
 $layoutSetting = $this->themeSetting('browse_layout');
 $gridState = ($layoutSetting == 'togglegrid') ? 'disabled' : '';
 $listState = ($layoutSetting == 'togglelist') ? 'disabled': '';
@@ -43,7 +42,7 @@ foreach ($this->resources as $resource):
     $body = $bodyTerm ? $resource->value($bodyTerm) : $resource->displayDescription();
 ?>
     <li class="<?php echo $this->resourceType; ?> resource <?php echo ($isGrid) ? '' : 'media-object'; ?>">
-        <?php if ($thumbnail = $this->thumbnail($resource, 'medium')): ?>
+        <?php if ($thumbnail = $this->thumbnail($resource, 'medium', ['alt' => 'Image of ' . $heading])): ?>
         <div class="resource-image <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
             <?php echo $resource->linkRaw($thumbnail, null, ['class' => 'thumbnail']); ?>
         </div>
@@ -51,7 +50,7 @@ foreach ($this->resources as $resource):
         <div class="resource-meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
             <h4><?php echo $resource->link($heading); ?></h4>
             <?php if ($body): ?>
-            <div class="description"><?php echo $escape($body); ?></div>
+            <div class="description"><?php echo $body; ?></div>
             <?php endif; ?>
         </div>
     </li>

@@ -11,6 +11,7 @@ switch ($searchType) {
 }
 $searchValue = $this->escapeHtml($this->params()->fromQuery('fulltext_search', ''));
 ?>
+<div>
 
 <form action="<?php echo $this->escapeHtml($searchAction); ?>" id="search-form" class="input-group">
     <input type="text" name="fulltext_search" value="<?php echo $searchValue; ?>"
@@ -20,3 +21,4 @@ $searchValue = $this->escapeHtml($this->params()->fromQuery('fulltext_search', '
     <button type="submit" class="button"><?php echo $translate('Search'); ?></button>
     </div>
 </form>
+</div>

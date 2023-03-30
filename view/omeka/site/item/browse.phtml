@@ -46,21 +46,18 @@ $sortHeadings = [
         <?php echo $itemSet->displayValues(); ?>
     </div>
     <div class="item-set-items">
-    <?php echo '<h3>' . $escape($translate('Items')) . '</h3>'; ?>
-<?php else: ?>
-    <?php echo $this->pageTitle($translate('Items'), 2); ?>
 <?php endif; ?>
-
+<br/>
 <?php echo $this->searchFilters(); ?>
 <div class="browse-control-mobile">
-<button type="button" class="browse-toggle closed"><?php echo $translate('Options'); ?></button>
+<button type="button" class="browse-toggle closed">Tools</button>
 </div>
 <div class="browse-controls closed">
     <?php echo $this->pagination(); ?>
     <?php if (strpos($layoutSetting, 'toggle') !== false): ?>
     <div class="layout-toggle">
         <button type="button" aria-label="<?php echo $translate('Grid'); ?>" class="grid o-icon-grid" <?php echo $gridState; ?>></button>
-        <button type="button" aria-label="<?php echo $translate('List'); ?>" class="list o-icon-list" <?php echo $listState; ?>></button>
+        <button type="button" aria-label="<?php echo $translate('List'); ?>" class="list o-icon-list" <?php echo $listState; ?>></button>        
     </div>
     <?php endif; ?>
     <?php echo $this->hyperlink($translate('Advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?>
@@ -73,7 +70,7 @@ $sortHeadings = [
 foreach ($items as $item):
     $heading = $headingTerm ? $item->value($headingTerm, ['default' => $translate('[Untitled]')]) : $item->displayTitle();
     $body = $bodyTerm ? $item->value($bodyTerm) : $item->displayDescription();
-?>
+?>  
     <li class="item resource <?php echo ($isGrid) ? '' : 'media-object'; ?>">
         <?php if ($thumbnail = $this->thumbnail($item, 'medium')): ?>
         <div class="resource-image <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
@@ -83,7 +80,8 @@ foreach ($items as $item):
         <div class="resource-meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
             <h4><?php echo $item->link($heading); ?></h4>
             <?php if ($body): ?>
-            <div class="description <?php echo ($bodyTruncate) ? $bodyTruncate : ''; ?>"><?php echo $escape($body); ?></div>
+            <?php if ($item->value('dcterms:date') != "") echo '<div><b>Date: </b>' . $item->value('dcterms:date') . '</div>'; ?>
+            <div class="description <?php echo ($bodyTruncate) ? $bodyTruncate : ''; ?>"><?php echo $body; ?></div>
             <?php endif; ?>
         </div>
     </li>

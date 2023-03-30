@@ -10,6 +10,7 @@ if (isset($stylesheet)) {
 } else {
     $this->headLink()->prependStylesheet($this->assetUrl('css/default.css'));
 }
+$this->headLink()->prependStylesheet($this->assetUrl('css/custom.css'));
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headScript()->prependFile('//cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js', 'text/javascript', [
   'integrity' => 'sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw==',
@@ -40,6 +41,19 @@ endif;
         <?php echo $this->headLink(); ?>
         <?php echo $this->headStyle(); ?>
         <?php echo $this->headScript(); ?>
+        <link rel="stylesheet" href="//nfpl.historicniagara.ca/themes/foundation/asset/css/print.css">
+        <link rel="icon" href="/files/asset/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/files/asset/favicon.ico" type="image/x-icon" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1437968-12"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-1437968-12');
+        </script>
+
     </head>
 
     <?php echo $this->htmlElement('body'); ?>
@@ -61,18 +75,20 @@ endif;
                 <?php endif; ?>
             </header>
             <div id="content" role="main">
+            <a href="<?php echo $site->url(); ?>" class="site-title item-set-header"><?php echo $this->pageTitle($site->title()); ?></a>
                 <?php echo $this->content; ?>
             </div>
             <footer>
                 <?php if ($footerContent = $this->themeSetting('footer')): ?>
                 <?php echo $footerContent; ?>
                 <?php else: ?>
-                    <?php echo $this->translate('Powered by Omeka S'); ?>
+                    <?php echo $this->translate('Hosted By The Niagara Falls Public Library'); ?>
                 <?php endif; ?>
             </footer>
         </div>
         <script>
           $(document).foundation();
         </script>
+        
     </body>
 </html>

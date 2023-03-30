@@ -620,7 +620,6 @@ body.vertical-menu footer {
   @include thumbnail;
   height: ($paragraph-lineheight * 2rem);
   width: auto;
-  min-width: 1px;
   margin: 0 $global-margin 0 0;
 }
 
@@ -632,24 +631,6 @@ body.vertical-menu footer {
 
 .resource.show #linked-resources .resource-link {
   margin-bottom: 0;
-}
-
-.linked-header .omeka-pagination {
-  margin: (.5 * $global-margin) 0;
-}
-
-@include breakpoint(medium up) {
-  .linked-header {
-    display:  flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  
-  .linked-header .omeka-pagination {
-    width: 50%;
-    justify-content: flex-end;
-    margin: 0;
-  }  
 }
 
 .media-list img {
@@ -925,6 +906,7 @@ body.vertical-menu footer {
 .preview-block h4 {
   @extend h5;
 }
+
 
 // -- Search
 
